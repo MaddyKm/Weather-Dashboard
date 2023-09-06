@@ -1,0 +1,12 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+header {
+  background-image: linear-gradient(
+    to right,
+    rgb(14, 14, 176),
+    rgb(182, 182, 11)
+  );
+  text-align: end;
+  padding: 0.5em;
+}
