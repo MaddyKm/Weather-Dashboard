@@ -3,6 +3,7 @@ var APIkey = "6cf092f23b87fdf33fc57108faf70e1a";
 var cityInput = document.querySelector("#cityinput");
 var search = document.querySelector("#searchbtn");
 var formInput = document.querySelector("#inputForm");
+var weatherDisplay = document.querySelector("#weatherDisplay");
 //DATA~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //FUNCTIONS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,6 +26,26 @@ function getWeather() {
         console.log(response);
         response.json().then(function (data) {
           console.log(data);
+          var cityName = document.createElement("p");
+
+          cityName.innerText = cityInput.value;
+
+          weatherDisplay.appendChild(cityName);
+
+          var temp = document.createElement("p");
+          temp.innerText = "Temp: " + data.main.temp;
+
+          cityName.appendChild(temp);
+
+          var wind = document.createElement("p");
+          wind.innerText = "Wind: " + data.wind.speed + " MPH";
+
+          temp.appendChild(wind);
+
+          var humidity = document.createElement("p");
+          humidity.innerText = "Humidity: " + data.main.humidity + "%";
+
+          wind.appendChild(humidity);
         });
       } else {
         alert("Error " + response.statusText);
@@ -33,8 +54,22 @@ function getWeather() {
     .catch(function (error) {
       alert("Unable to connect to weather");
     });
-  cityInput.value = "";
+
+  //   displayWeather(data);
 }
+
+// function displayWeather(data) {
+//   var cityName = document.createElement("p");
+
+//   cityName.innerText = cityInput.value;
+
+//   weatherDisplay.appendChild(cityName);
+
+//   var temp = document.createElement("p");
+//   temp.innerText = "Temp: " + this.data.main.temp;
+
+//   cityName.appendChild(temp);
+// }
 //USER INTERACTIONS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //searching city in input
 //button to initiate search
