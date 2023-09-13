@@ -10,3 +10,21 @@ header {
   text-align: end;
   padding: 0.5em;
 }
+
+main {
+  display: flex;
+}
+
+aside {
+  padding: 1em;
+}
+
+#weatherDisplay {
+  background-image: linear-gradient(rgb(14, 14, 176), rgb(182, 182, 11));
+  padding: 1em;
+  margin: 1em;
+}
+
+ul button {
+  width: 75%;
+}
